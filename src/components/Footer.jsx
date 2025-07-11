@@ -1,61 +1,33 @@
 import React from 'react'
-import { Box, Typography, Container, Link } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <Box sx={{ color: "#262626", textAlign: "center" }}>
-      <hr/>
-      <Container sx={{ display: { xs: "block", md: "flex" }, textAlign: "left" }} >
-
-        
-        <Container>
-          <Typography>
-            <Link href="/" sx={{textDecoration: "none", color: "#262626"}}>Home</Link>
-            </Typography>
-            <Typography>
-            <Link href="/services" sx={{textDecoration: "none", color: "#262626"}}>Services</Link>
-            </Typography>
-            <Typography>
-            <Link href="/contact" sx={{textDecoration: "none", color: "#262626"}}>Contact</Link>
-            </Typography>
-            <Typography>
-            <Link href="/quote" sx={{textDecoration: "none", color: "#262626"}}>Quote</Link>
-            </Typography>
-            <br />
-        </Container>
-
-        <Container>
-          <Typography>
-            <Link href="/services" sx={{textDecoration: "none", color: "#262626"}}>Services</Link>
-            </Typography>
-            <Typography>
-            <Link href="/services" sx={{textDecoration: "none", color: "#262626"}}>Auto Insurance</Link>
-            </Typography>
-            <Typography>
-            <Link href="/services" sx={{textDecoration: "none", color: "#262626"}}>Home Insurance</Link>
-            </Typography>
-            <Typography>
-            <Link href="/services" sx={{textDecoration: "none", color: "#262626"}}>Commercial Insurance</Link>
-            </Typography>
-            <br />
-        </Container>
-
-        <Container>
-          <Typography>102-1691 McCowan Road</Typography>
-          <Typography>Scarborough, ON, M1S 2Y3</Typography>
-          <Typography>
-            <Link href="tel:+1-416-609-9500" sx={{textDecoration: "none", color: "#262626"}}>
-            416-609-9500
-            </Link>
-          </Typography>
-          <Typography>info@willismonroeinsurance.com</Typography>
-          <Typography>Monday - Friday 9AM - 5PM</Typography>
-          <br />
-        </Container>
-      </Container>
-      <br />
-      <Typography>Copyright 2022 Willis & Monroe Associates</Typography>
-    </Box>
+    <div className='bg-[#123654] py-8'>
+      <div className='max-w-[800px] mx-auto flex flex-col md:flex-row px-4 md:px-0 text-gray-300'>
+        <div className='flex-1'>
+          <Link to='/' className='text-lg font-semibold'>Willis & Monroe Associates</Link>
+          <p>102-1691 McCowan Road</p>
+          <p>Scarborough, ON, M1S 2Y3</p>
+          <div><a href="tel:+1-416-609-9500">416-609-9500</a></div>
+          <div><a href="mailto:info@willismonroeinsurance.com">info@willismonroeinsurance.com</a></div>
+          <p>Mon-Fri 9AM-5PM</p>
+        </div>
+        <div className='flex-1 flex flex-col my-4 md:my-0 md:text-center'>
+          <Link to='/'>Home</Link>
+          <Link to='/services'>Services</Link>
+          <Link to='/contact'>Contact</Link>
+          <Link to='/quote'>Quote</Link>
+        </div>
+        <div className='flex-1 flex flex-col md:text-center'>
+          <Link to='/autoinsurance'>Auto Insurance</Link>
+          <Link to='/homeinsurance'>Home Insurance</Link>
+          <Link to='/commercialinsurance'>Commercial Insurance</Link>
+          <Link to='/quote'>Get Quote</Link>
+        </div>
+      </div>
+      <p className='text-gray-300 text-center mt-4'>Copyright 2024 Willis & Monroe Associates</p>
+    </div>
   )
 }
 

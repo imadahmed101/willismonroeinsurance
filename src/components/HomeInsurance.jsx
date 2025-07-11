@@ -1,26 +1,28 @@
 import React from 'react'
-import { Box, Typography, Button, Container } from '@mui/material'
-import { KeyboardArrowRight } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 
 const HomeInsurance = () => {
   return (
-    <Box>
-      <Container sx={{ mt: "50px", mb: "50px" }}>
-        <Typography variant="h4" fontWeight="600">Home Insurance</Typography>
-      <Container sx={{
-        backgroundImage: `url("./house.jpg")`,
-        backgroundAttachment: "scroll",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        minHeight: { xs: "200px", sm: "300px", md: "400px" }
-      }}>
-      </Container>
-        <br /><Typography variant="p" >Having a roof over your head is a necessity, keeping a roof over your head is our goal. We take care of all Home and property insurance needs.</Typography>
-        <br /><br /><Button variant="contained" href="/quote" sx={{ display: { xs: "none", md: "flex" }, backgroundColor: "black", padding: "20px", borderRadius: "15px", "&:hover": { backgroundColor: "#262626" } }}>Get Home Insurance Quote<KeyboardArrowRight /></Button>
-        <Button variant="contained" href="/quote" sx={{ display: { xs: "flex", md: "none" }, backgroundColor: "black", padding: "20px", borderRadius: "15px", "&:hover": { backgroundColor: "#262626" } }}>Get Quote<KeyboardArrowRight /></Button>
-      </Container>
-    </Box>
+    <div className='mb-12'>
+    <h3 className='text-4xl font-semibold mb-4'><Link to={'/homeinsurance'}>Home Insurance</Link> </h3>
+    <Link to='/homeinsurance'>
+
+    <div className='overflow-hidden mb-4'>
+      <picture>
+        <source type='image/webp' srcSet="/house.webp" />
+        <img src="/house.jpg" alt='Front view of a home on a lake.' className='h-[200px] md:h-[300px] lg:h-[400px] w-full object-cover' />
+      </picture>
+    </div>
+    </Link>
+    <Link to='/homeinsurance' className='inline-flex bg-black text-white md:text-lg px-2 py-4 rounded-xl hover:bg-gray-800'>
+      Home Insurance
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 md:w-8 md:h-6 my-auto">
+        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+      </svg>
+
+    </Link>
+
+  </div>
   )
 }
 

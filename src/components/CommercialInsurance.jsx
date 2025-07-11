@@ -1,26 +1,30 @@
 import React from 'react'
 import { Box, Typography, Button, Container } from '@mui/material'
 import { KeyboardArrowRight } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 
 const CommercialInsurance = () => {
   return (
-    <Box>
-      <Container sx={{ mt: "50px", mb: "50px" }}>
-        <Typography variant="h4" fontWeight="600">Commercial Insurance</Typography>
-      <Container sx={{
-        backgroundImage: `url("./biz.jpg")`,
-        backgroundAttachment: "scroll",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        minHeight: { xs: "200px", sm: "300px", md: "400px" }
-      }}>
-      </Container>
-        <br /><Typography variant="p" >Building up a business and keeping it there is an every day struggle. Let us show you how we can take away some of your stress by insuring your business and business property. We take care of all your Commercial insurance needs.</Typography>
-        <br /><br /><Button variant="contained" href="/quote" sx={{ display: { xs: "none", md: "flex" }, backgroundColor: "black", padding: "20px", borderRadius: "15px", "&:hover": { backgroundColor: "#262626" } }}>Get Commercial Insurance Quote<KeyboardArrowRight /></Button>
-        <Button variant="contained" href="/quote" sx={{ display: { xs: "flex", md: "none" }, backgroundColor: "black", padding: "20px", borderRadius: "15px", "&:hover": { backgroundColor: "#262626" } }}>Get Quote<KeyboardArrowRight /></Button>
-      </Container>
-    </Box>
+    <div className='mb-12'>
+    <h3 className='text-4xl font-semibold mb-4'><Link to={'/commercialinsurance'}>Commercial Insurance</Link> </h3>
+    <Link to='/commercialinsurance'>
+
+    <div className='overflow-hidden mb-4'>
+      <picture>
+        <source type='image/webp' srcSet="/business.webp" />
+        <img src="/business.jpg" alt='View of office buildings in a city.' className='h-[200px] md:h-[300px] lg:h-[400px] w-full object-cover' />
+      </picture>
+    </div>
+    </Link>
+    <Link to='/commercialinsurance' className='inline-flex bg-black text-white md:text-lg px-2 py-4 rounded-xl hover:bg-gray-800'>
+      Commercial Insurance
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 md:w-8 md:h-6 my-auto">
+        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+      </svg>
+
+    </Link>
+
+  </div>
   )
 }
 

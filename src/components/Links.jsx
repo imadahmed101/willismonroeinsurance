@@ -1,51 +1,50 @@
 import React from 'react'
-import { Box, Container, Typography, Button, Paper } from '@mui/material'
 import { Calculate, DirectionsCar, HomeWork, Work } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
+
+const links = [
+    {
+        title: 'Auto Insurance',
+        shortTitle: 'Auto',
+        icon: <DirectionsCar sx={{ width: "60px", height: "60px" }} />,
+        link: '/autoinsurance'
+
+    },
+    {
+        title: 'Home Insurance',
+        shortTitle: 'Home',
+        icon: <HomeWork sx={{ width: "60px", height: "60px" }} />,
+        link: '/homeinsurance'
+    },
+    {
+        title: 'Commercial Insurance',
+        shortTitle: 'Commercial',
+        icon: <Work sx={{ width: "60px", height: "60px" }} />,
+        link: '/commercialinsurance'
+    },
+    {
+        title: 'Get Quote',
+        shortTitle: 'Quote',
+        icon: <Calculate sx={{ width: "60px", height: "60px" }} />,
+        link: '/quote'
+    },
+]
 
 const Links = () => {
     return (
-        <Box mt={5}>
-
-            <Container sx={{ display: { xs: "block", md: "flex" }, justifyContent: "space-between", textAlign: "center", color: "#262626" }}>
-
-                    <Button href="/services" >
-                        <Paper variant="outlined" sx={{ width: "225px", "&:hover": {border: "1px solid black", color: "black"}}}>
-                            <Container sx={{ textAlign: "center" }}>
-                                <DirectionsCar sx={{ width: "75px", height: "75px" }} />
-                                <Typography variant="h5" fontWeight="600">Auto<br/>Insurance</Typography>
-                            </Container>
-                        </Paper>
-                    </Button>
-
-                    <Button href="/services" >
-                        <Paper variant="outlined" sx={{ width: "225px", "&:hover": {border: "1px solid black", color: "black"}}}>
-                            <Container sx={{ textAlign: "center" }}>
-                                <HomeWork sx={{ width: "75px", height: "75px" }} />
-                                <Typography variant="h5" fontWeight="600">Home<br/>Insurance</Typography>
-                            </Container>
-                        </Paper>
-                    </Button>
-
-                    <Button href="/services">
-                        <Paper variant="outlined" sx={{width: "225px", "&:hover": {border: "1px solid black", color: "black"}}}>
-                            <Container sx={{ textAlign: "center" }}>
-                                <Work sx={{ width: "75px", height: "75px" }} />
-                                <Typography variant="h5" fontWeight="600">Commercial<br/>Insurance</Typography>
-                            </Container>
-                        </Paper>
-                    </Button>
-
-                    <Button href="/quote">
-                        <Paper variant="outlined" sx={{ width: "225px", "&:hover": {border: "1px solid black", color: "black"}}}>
-                            <Container sx={{ textAlign: "center" }}>
-                                <Calculate sx={{ width: "75px", height: "75px" }} />
-                                <Typography variant="h5" fontWeight="600">Request<br/>Quote</Typography>
-                            </Container>
-                        </Paper>
-                    </Button>
-
-            </Container>
-        </Box>
+        <div className='py-4'>
+            <div className='max-w-[850px] mx-auto flex overflow-x-scroll'>
+                {links.map((item, key) => (
+                    <Link to={item.link} key={key} className='flex-1 flex-shrink-0 text-[#123456] transition duration-300 hover:text-black hover:shadow-xl'>
+                        <div className='text-center group relative'>
+                            {item.icon}
+                            <h3 className='hidden md:flex md:text-xl justify-center'>{item.title}</h3>
+                            <h3 className='flex md:hidden justify-center'>{item.shortTitle}</h3>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </div>
     )
 }
 
